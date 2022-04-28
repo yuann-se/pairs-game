@@ -62,7 +62,7 @@ window.addEventListener('DOMContentLoaded', () => {
     timer.style.display = 'block';
     timer.textContent = 60;
     i = 60;
-    time = setInterval(startTimer, 1000);
+    // time = setInterval(startTimer, 1000);
   });
 
   for (let i = 0; i < cards.length; ++i) {
