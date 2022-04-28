@@ -1,0 +1,92 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.success-img,
+.fail-img {
+    display: none;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px;
+    height: 650px;
+    margin: -10px;
+}
+
+.card-wrapper {
+    width: 25%;
+    height: 25%;
+    padding: 10px;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.front, .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    backface-visibility: hidden;
+    border-radius: inherit;
+    transition: transform .7s ease;
+    border: 1px solid black;
+}
+
+.front {
+    padding: 30px;
+    text-align: center;
+    font-size: 70px;
+    background-color: aqua;
+    transform: perspective(200px) rotateY(180deg);
+}
+
+.back {
+    background-color: aquamarine;
+    transform: perspective(200px) rotateY(0deg) scale(1);
+}
+
+@keyframes card_scale { 
+    0% { 
+        transform: scale(1);
+    } 
+    50% {
+        transform: scale(1.2);
+    }
+    100% { 
+        transform: scale(1) 
+    }  
+}
+
+.card.is-flipped {
+    animation: card_scale .7s alternate ease;
+}
+
+.card.is-flipped > .front{
+    transform: perspective(200px) rotateY(0deg);
+}
+
+.card.is-flipped > .back{
+    transform: perspective(200px) rotateY(-180deg);
+}
