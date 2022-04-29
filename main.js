@@ -70,50 +70,11 @@ const newGameBtn = document.querySelector('.new-game-btn');
 
 window.addEventListener('DOMContentLoaded', () => {
 
-  shuffledArray = shuffle(givenArray);
-  for (let i = 0; i < cards.length; ++i) {
-    cards[i].children[0].textContent = shuffledArray[i];
-    cards[i].setAttribute('id', `${i}`);
-  };
-
-  newGameBtn.style.display = 'none';
-  document.querySelector('.row').style.display = 'flex';
-  n = -1;
-  show = setInterval(showWithDelay, 200);
-
-  i = 60;
-  timerWrapper.querySelector('path').style.strokeDasharray = '0, 251.2';
-  timerWrapper.querySelector('text').textContent = '60';
-  setTimeout(() => {
-    timerWrapper.style.opacity = '1';
-    time = setInterval(startTimer, 1000);
-  }, 3500);
-
-  cards.forEach((card) => {
-    card.addEventListener('click', () => {
-      if (!card.classList.contains('is-flipped')) {
-        card.classList.add('is-flipped');
-
-        if (lastTwoCards.length === 2) {
-          if (document.getElementById(`${lastTwoCards[0]}`).children[0].textContent !== document.getElementById(`${lastTwoCards[1]}`).children[0].textContent) {
-            document.getElementById(`${lastTwoCards[0]}`).classList.remove('is-flipped');
-            document.getElementById(`${lastTwoCards[1]}`).classList.remove('is-flipped');
-          };
-          lastTwoCards = [];
-        };
-
-        if (lastTwoCards.length < 2) {
-          lastTwoCards.push(card.attributes.id.value);
-        };
-      }
-    })
-  })
-
   newGameBtn.addEventListener('click', () => {
     shuffledArray = shuffle(givenArray);
     for (let i = 0; i < cards.length; ++i) {
-      cards[i].children[0].textContent = shuffledArray[i];
       cards[i].setAttribute('id', `${i}`);
+      cards[i].querySelector('.front').style.backgroundImage = `url(img/${shuffledArray[i]}.png)`;
     };
 
     cards.forEach((card) => card.classList.remove('is-flipped'));
@@ -136,6 +97,27 @@ window.addEventListener('DOMContentLoaded', () => {
       time = setInterval(startTimer, 1000);
     }, 3500);
   });
+
+
+  cards.forEach((card) => {
+    card.addEventListener('click', () => {
+      if (!card.classList.contains('is-flipped')) {
+        card.classList.add('is-flipped');
+
+        if (lastTwoCards.length === 2) {
+          if (document.getElementById(`${lastTwoCards[0]}`).children[0].style.backgroundImage !== document.getElementById(`${lastTwoCards[1]}`).children[0].style.backgroundImage) {
+            document.getElementById(`${lastTwoCards[0]}`).classList.remove('is-flipped');
+            document.getElementById(`${lastTwoCards[1]}`).classList.remove('is-flipped');
+          };
+          lastTwoCards = [];
+        };
+
+        if (lastTwoCards.length < 2) {
+          lastTwoCards.push(card.attributes.id.value);
+        };
+      }
+    })
+  })
 
 
 

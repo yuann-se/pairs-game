@@ -132,6 +132,9 @@ html {
   text-align: center;
   font-size: 70px;
   transform: perspective(900px) rotateY(180deg);
+  background-size: calc(100% - 5px) calc(100% - 5px);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .front::after {
@@ -151,7 +154,7 @@ html {
   content: '';
   position: absolute;
   inset: 3px;
-  background-image: url(../img/2.jpg);
+  background-image: url(../img/ricebowl.jpg);
   background-size: cover;
   opacity: .4;
   border-radius: inherit;
@@ -169,7 +172,7 @@ html {
 .card-wrapper:nth-child(n+5):nth-child(-n+8):nth-child(even) .back::before,
 .card-wrapper:nth-child(n+9):nth-child(-n+12):nth-child(odd) .back::before,
 .card-wrapper:nth-child(n+13):nth-child(-n+16):nth-child(even) .back::before {
-  background-image: url(../img/1.png);
+  background-image: url(../img/nekowife.png);
   opacity: .7;
 }
 
