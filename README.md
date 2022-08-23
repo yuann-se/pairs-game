@@ -12,4 +12,4 @@
 </div>
 
 ## Превью:
-<img width="300" src="https://sun9-63.userapi.com/impg/TQ0YSsbCJCCzC29j29slGwgzlWg2RHLO_HySxg/llnkTNGMDpY.jpg?size=300x490&quality=95&sign=0be12f4e1acb12a146b5c3ede155dfe7&type=album"/>
+<img width="300" src="https://drive.google.com/uc?export=view&id=10QAQmRdmnY98lLCeGgJ9ioigK5J3YuF4"/>
